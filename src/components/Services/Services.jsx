@@ -6,7 +6,7 @@ import Glasses from "../../img/glasses.png";
 import Humble from "../../img/humble.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
-import Resume from "./Azam khan front-end react js developer.pdf";
+import Resume from "./Azam khan front-end Developer (React js ).pdf";
 
 const Services = () => {
   // context

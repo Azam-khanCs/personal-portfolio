@@ -12,9 +12,16 @@ import RedStore from "../../img/red store.png";
 import FileConverter from "../../img/file converter.png";
 import Railway from "../../img/railway.png";
 import Portfolio1 from "../../img/porfolio 1.png";
-import Portfolio3 from "../../img/porfilio3.png";
 import whyPorfolio from "../../img/whyPorfolio.png";
 import Gymclub from "../../img/fitClub.png";
+import Greenbank from '../../img/green bank.png'
+import Startup from '../../img/startup.png'
+import ShadowFall from '../../img/shadowfall.png'
+import CreaticAgency from '../../img/creatic agency.png'
+import BestAmazon from '../../img/amazon book.png'
+import Landie from '../../img/landies.png'
+import Agency from '../../img/agency.png'
+
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -70,21 +77,25 @@ const Portfolio = () => {
             <img src={Vivenda} alt="" />
           </a>
         </SwiperSlide>
+
         <SwiperSlide>
           <a href="https://symphonious-sundae-395465.netlify.app/">
             <img src={HeadHunters} alt="" />
           </a>
         </SwiperSlide>
+
         <SwiperSlide>
           <a href="https://leafy-fenglisu-b5192f.netlify.app/">
             <img src={RedStore} alt="" />
           </a>
         </SwiperSlide>
+
         <SwiperSlide>
           <a href="https://64b8fafccbdc555f8e0c85e9--chic-selkie-57328a.netlify.app/">
             <img src={Gymclub} alt="" />
           </a>
         </SwiperSlide>
+
         <SwiperSlide>
           <a href="https://whyportfolio1.netlify.app/">
             <img src={whyPorfolio} alt="" />
@@ -96,6 +107,7 @@ const Portfolio = () => {
             <img src={Railway} alt="" />
           </a>
         </SwiperSlide>
+
         <SwiperSlide>
           <a href="https://azamkhan-porfolio.netlify.app/">
             <img src={Portfolio1} alt="" />
@@ -107,9 +119,49 @@ const Portfolio = () => {
             <img src={FileConverter} alt="" />
           </a>
         </SwiperSlide>
+
         <SwiperSlide>
-          <img src={Portfolio3} alt="" />
+          <a href="https://lucky-brigadeiros-1474b2.netlify.app/">
+            <img src={Greenbank} alt="" />
+          </a>
         </SwiperSlide>
+
+        <SwiperSlide>
+          <a href="https://helpful-daffodil-2b8a35.netlify.app/">
+            <img src={Startup} alt="" />
+          </a>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <a href="https://ephemeral-gnome-5fe2d8.netlify.app/">
+            <img src={ShadowFall} alt="" />
+          </a>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <a href="https://famous-belekoy-5acb4d.netlify.app/">
+            <img src={CreaticAgency} alt="" />
+          </a>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <a href="https://top-10-best-amazon-seller-books.netlify.app/">
+            <img src={BestAmazon} alt="" />
+          </a>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <a href="https://cerulean-zuccutto-2fa9eb.netlify.app/">
+            <img src={Landie} alt="" />
+          </a>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <a href="https://phenomenal-flan-25170e.netlify.app/">
+            <img src={Agency} alt="" />
+          </a>
+        </SwiperSlide>
+
       </Swiper>
     </div>
   );
