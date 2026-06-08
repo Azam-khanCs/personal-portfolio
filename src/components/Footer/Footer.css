@@ -1,76 +1,58 @@
 .footer {
-  display: flex;
-  align-items: center;
-  margin: -0.5rem -3.5rem;
-  position: relative;
-  margin-top: -7rem;
-}
-.f-content {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 4rem;
-  gap: 4rem;
-  color: white;
-}
-.f-icons {
-  display: flex;
-  gap: 1rem;
+ padding: 2rem max(1rem, calc((100vw - 1400px) / 2)) 2.5rem;
 }
 
-.f-icons>a>svg{
-  border: 2px solid transparent;
-  border-radius: 50%;
-  padding: 8px;
+.footer-inner {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ justify-content: space-between;
+ gap: 1rem;
+ border-top: 1px solid var(--border);
+ color: var(--text-muted);
+ padding-top: 1.5rem;
 }
 
-.f-icons>:nth-child(1):hover>svg{
-  fill:#E4405F;
-  border: 2px solid #E4405F;
-  border-radius: 50%;
-  padding: 8px;
-
-}
-.f-icons>:nth-child(2):hover>svg{
-  fill:#1877F2;
-  border: 2px solid #1877F2;
-  border-radius: 50%;
-  padding: 8px;
-}
-.f-icons>:nth-child(3):hover>svg{
-  fill:#24292E; 
-  border: 2px solid #24292E;
-  border-radius: 50%;
-  padding: 8px;
-}
-.f-icons>:nth-child(4):hover>svg{
-  fill:#25D366;
-  border: 2px solid #25D366;
-  border-radius: 50%;
-  padding: 8px;
-}
-.f-icons>:nth-child(5):hover>svg{
-  fill:#1DA1F2; 
-  border: 2px solid #1DA1F2;
-  border-radius: 50%;
-  padding: 8px;
+.footer-inner strong {
+ display: block;
+ color: var(--heading);
+ font-size: 1.2rem;
 }
 
-.email-text{
-  text-decoration: none;
-  color: white;
-}
-.email-text:hover{
-  letter-spacing: 2px;
-  color: brown;
+.footer-inner span {
+ font-size: 0.9rem;
 }
 
+.footer-email {
+ color: var(--text-muted);
+ font-weight: 800;
+}
 
-@media screen and (max-width: 480px){
-  .f-content{
-    transform: scale(.5);
-  }
+.footer-email:hover {
+ color: var(--accent);
+}
+
+.footer-icons {
+ display: flex;
+ gap: 0.6rem;
+}
+
+.footer-icons a {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 42px;
+ height: 42px;
+ border: 1px solid var(--border);
+ border-radius: 999px;
+ background: var(--surface-strong);
+ color: var(--heading);
+ transition:
+  color 0.2s ease,
+  transform 0.2s ease;
+}
+
+.footer-icons a:hover {
+ color: var(--accent);
+ transform: translateY(-2px);
 }

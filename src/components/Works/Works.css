@@ -1,142 +1,131 @@
-.works {
-  padding: 0 3rem 0 3rem;
-  display: flex;
-  height: 90vh;
-  margin-top: 4rem;
-  align-items: center;
-}
-/* left side */
-.awesome {
-  display: flex;
-  flex-direction: column;
+.community-panel {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2rem;
+  overflow: hidden;
+  padding: clamp(1.3rem, 4vw, 2.6rem);
 }
 
-.awesome > :nth-child(1) {
-  color: var(--black);
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-.awesome > :nth-child(2) {
-  color: var(--orange);
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-.awesome > :nth-child(3) {
-  color: var(--gray);
-  font-size: 14px;
-  margin-top: 1rem;
-}
-.s-button {
-  width: 8rem;
-  height: 2rem;
-  margin-top: 4rem;
+.community-bg {
+  position: absolute;
+  top: -8rem;
+  right: -8rem;
+  width: 24rem;
+  height: 24rem;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(0, 212, 255, 0.28), transparent 42%),
+    radial-gradient(circle at 70% 70%, rgba(255, 138, 0, 0.24), transparent 46%);
 }
 
-/* right side */
-.w-right {
+.community-copy,
+.community-visual {
   position: relative;
-  flex: 1;
-}
-
-.w-mainCircle {
-  left: 9rem;
-  position: relative;
-  width: 18rem;
-  height: 18rem;
-  border-radius: 100%;
-  box-shadow: var(--smboxShadow);
-  top: 2rem;
-  background: white;
-  /* darkMode */
-  z-index: 2;
-}
-.w-mainCircle > * {
-  position: absolute;
-}
-.w-mainCircle > :nth-child(1) {
-  top: -3rem;
-  left: 6rem;
-}
-.w-mainCircle > :nth-child(2) {
-  left: -3rem;
-  top: 5rem;
-}
-.w-mainCircle > :nth-child(3) {
-  left: 6rem;
-  top: 5rem;
-}
-.w-mainCircle > :nth-child(4) {
-  left: 15rem;
-  top: 5rem;
-}
-.w-mainCircle > :nth-child(5) {
-  left: 6rem;
-  top: 13rem;
-}
-.w-secCircle ,.w-secCircle1 {
-  width: 6rem;
-  height: 6rem;
-  position: absolute;
-  border-radius: 100%;
-  border: 5px solid #ebebeb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: "none";
-  box-shadow: var(--smboxShadow);
-  background: white;
-  
-}
-.w-secCircle1>img{
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-  }
-.w-secCircle > img {
-  transform: scale(0.6);
-}
-
-.w-backCircle {
-  position: absolute;
-  height: 13rem;
-  width: 13rem;
-  border-radius: 100%;
-  /* darkMode */
   z-index: 1;
 }
-.blueCircle {
-  background: #1949b8;
-  left: 18rem;
-  top: 0rem;
-}
-.yellowCircle {
-  background: #f5c32c;
-  left: 18rem;
-  top: 8rem;
-}
-.w-left{
-  flex: 1;
-}
-@media screen and (max-width: 480px) {
-  .works {
-    flex-direction: column;
-    height: 55rem;
-    padding: 0;
-    gap: 5rem;
-  }
 
-  .w-right {
-    display: flex;
+.community-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.community-logo {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  box-shadow: 0 20px 55px rgba(0, 212, 255, 0.22);
+  color: #06101f;
+  line-height: 1;
+}
+
+.community-logo span {
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.community-logo strong {
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.community-copy h2 {
+  color: var(--heading);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1;
+  margin: 0.2rem 0 0;
+}
+
+.community-copy p {
+  max-width: 700px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.community-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.community-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.community-stat,
+.network-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface-strong);
+  padding: 1rem;
+}
+
+.community-stat strong {
+  display: block;
+  color: var(--accent-2);
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.community-stat span,
+.network-card {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.community-cards {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .community-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .community-brand {
     align-items: flex-start;
-    justify-content:start;
-    transform: scale(0.7);
-  }
-  .w-mainCircle{
-    position: static;
-  }
-  .w-backCircle{
-    left: 8rem!important;
+    flex-direction: column;
   }
 
+  .community-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .community-actions > *,
+  .community-actions button {
+    width: 100%;
+  }
 }

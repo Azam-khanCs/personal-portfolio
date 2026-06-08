@@ -1,81 +1,75 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Works.css";
-import Fiverr from "../../img/fiverr.png";
-import Facebook from "../../img/Facebook.png";
-import Alright from "../../img/download.jpeg";
-import Jidat from "../../img/Layer.svg";
-import THHunters from "../../img/theHeadHunters.svg";
-
-import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-const Works = () => {
-  // context
-  const theme = useContext(themeContext);
-  const darkMode = theme.state.darkMode;
 
-  // transition
+const communityLinks = {
+  linkedin: "https://www.linkedin.com/",
+  whatsapp: "https://wa.me/00923419002614",
+  facebook: "https://www.facebook.com/",
+  email: "mailto:dev.azamkhan@gmail.com",
+};
+
+const communityStats = [
+  { value: "35K+", label: "LinkedIn followers" },
+  { value: "15", label: "WhatsApp groups" },
+  { value: "Daily", label: "Jobs, hiring updates, and career posts" },
+];
+
+const communityCards = [
+  "Job opportunities, recruiter posts, and hiring alerts",
+  "Career resources, guidance, and professional support",
+  "Collaboration space for job seekers, developers, and recruiters",
+];
+
+const Works = () => {
   return (
-    <div className="works" id="works">
-      {/* left side */}
-      <div className="w-left">
-        <div className="awesome">
-          {/* dark Mode */}
-          <span style={{ color: darkMode ? "white" : "" }}>
-            Works for All these
-          </span>
-          <span>Brands & Clients</span>
-          <spane>
-            I leverage my skills as a freelancer on platforms like Fiverr,
-            Upwork, and Facebook to connect with clients from around the world.
-            With these platforms, I have the opportunity to showcase my
-            expertise, collaborate on exciting projects, and build a strong
-            professional network. Through these channels, I strive to deliver
-            high-quality work and establish long-term partnerships with clients
-            across various industries.
-          </spane>
-          <span>
-            <Link to="contact" smooth={true} spy={true}>
-              <button className="button s-button">Hire Me</button>
-            </Link>
-          </span>
-          <div
-            className="blur s-blur1"
-            style={{ background: "#ABF1FF94" }}
-          ></div>
+    <section className="community section-shell" id="community" aria-labelledby="community-title">
+      <motion.div className="community-panel glass-card" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7 }}>
+        <div className="community-bg"></div>
+        <div className="community-copy">
+          <div className="community-brand">
+            <div className="community-logo" aria-label="IT Career Rise logo">
+              <span>IT</span>
+              <strong>CR</strong>
+            </div>
+            <div>
+              <span className="eyebrow">&lt;Community /&gt;</span>
+              <h2 id="community-title">IT Career Rise</h2>
+            </div>
+          </div>
+          <p>
+            IT Career Rise is my online professional community where job seekers,
+            software engineers, and recruiters connect. I share job opportunities,
+            hiring updates, recruiter posts, career resources, and practical
+            professional guidance across LinkedIn, WhatsApp, Facebook, and email.
+          </p>
+          <div className="community-actions">
+            <a className="btn-primary" href={communityLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn Page</a>
+            <a className="btn-secondary" href={communityLinks.whatsapp} target="_blank" rel="noreferrer">WhatsApp Community</a>
+            <a className="btn-secondary" href={communityLinks.facebook} target="_blank" rel="noreferrer">Facebook</a>
+            <a className="btn-ghost" href={communityLinks.email}>Gmail</a>
+            <Link to="contact" smooth spy offset={-70}><button className="btn-ghost">Hiring Collaboration</button></Link>
+          </div>
         </div>
 
-        {/* right side */}
-      </div>
-      <div className="w-right">
-        <motion.div
-          initial={{ rotate: 45 }}
-          whileInView={{ rotate: 0 }}
-          viewport={{ margin: "-40px" }}
-          transition={{ duration: 3.5, type: "spring" }}
-          className="w-mainCircle"
-        >
-          <div className="w-secCircle1">
-            <img src={Alright} alt="" />
+        <div className="community-visual">
+          <div className="community-stats">
+            {communityStats.map((item) => (
+              <motion.div className="community-stat" key={item.label} whileHover={{ y: -6 }}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </motion.div>
+            ))}
           </div>
-          <div className="w-secCircle">
-            <img src={THHunters} alt="" />
+          <div className="community-cards">
+            {communityCards.map((item) => (
+              <motion.div className="network-card" key={item} whileHover={{ x: 8 }}>{item}</motion.div>
+            ))}
           </div>
-          <div className="w-secCircle">
-            <img src={Fiverr} alt="" />
-          </div>{" "}
-          <div className="w-secCircle">
-            <img src={Jidat} alt="" />
-          </div>
-          <div className="w-secCircle">
-            <img src={Facebook} alt="" />
-          </div>
-        </motion.div>
-        {/* background Circles */}
-        <div className="w-backCircle blueCircle"></div>
-        <div className="w-backCircle yellowCircle"></div>
-      </div>
-    </div>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 

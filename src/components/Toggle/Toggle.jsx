@@ -8,20 +8,14 @@ const Toggle = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
   const handleClick = () => {
-    // debugger
     theme.dispatch({ type: "toggle" });
   };
   return (
-    <div className="toggle" onClick={handleClick}>
+    <button className="theme-toggle" onClick={handleClick} aria-label="Toggle dark mode" aria-pressed={darkMode} type="button">
       <Moon />
       <Sun />
-      {/*                              toggle.css mein left ki property aik assign hy ussy delete
-                                          krna hy pehly */}
-      <div
-        className="t-button"
-        style={darkMode ? { left: "2px" } : { right: "2px" }}
-      ></div>
-    </div>
+      <div className="theme-toggle-thumb" style={darkMode ? { left: "3px" } : { right: "3px" }}></div>
+    </button>
   );
 };
 

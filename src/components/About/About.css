@@ -1,0 +1,39 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 1.5rem;
+}
+
+.about-copy {
+  padding: 2rem;
+}
+
+.about-copy p {
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin: 0 0 1rem;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-highlights {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.highlight-pill {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-strong);
+  color: var(--heading);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+@media screen and (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

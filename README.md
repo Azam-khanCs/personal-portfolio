@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Azam Khan Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Modern personal portfolio for Azam Khan, a Full Stack Engineer / Full Stack Web Developer with nearly 5 years of experience across frontend, backend, databases, cloud deployment, leadership, and professional community building.
+
+## Tech Stack
+
+- React 17 with Create React App
+- React Context for dark/light theme
+- Framer Motion for section reveals, hover effects, and micro-interactions
+- Swiper for testimonial slider
+- EmailJS for the contact form
+- Responsive CSS with glassmorphism, cards, gradients, and accessible UI states
+
+## Sections
+
+- Hero with recruiter-friendly headline, CTAs, clickable social links, and availability for task-based, project-based, full-time, and part-time work
+- About Me with full stack, deployment, team collaboration, and IT Career Rise community background
+- Skills grouped by Frontend, Backend, Database, Cloud & Deployment, and Tools
+- Services focused on full stack web application delivery
+- Experience metrics with animated counters
+- IT Career Rise community section with LinkedIn, WhatsApp, Facebook, and Gmail actions
+- Professional project grid with title, description, tech stack, features, role, live link, and GitHub placeholder
+- Testimonials with polished non-placeholder content
+- Contact form with validation, loading state, success/error messages, EmailJS submission, email, LinkedIn, and WhatsApp contact
 
 ## Available Scripts
 
-In the project directory, you can run:
+### `npm start`
 
-### `yarn start`
+Runs the app in development mode at `http://localhost:3000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `npm run build`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Builds the production-ready app into the `build` folder.
 
-### `yarn test`
+### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the Create React App test runner.
 
-### `yarn build`
+## Customization Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Update personal and IT Career Rise social links in `Intro.jsx`, `Contact.jsx`, `Footer.jsx`, and `Works.jsx`.
+- Replace placeholder GitHub project links in `Portfolio.jsx` when repositories are available.
+- EmailJS credentials are currently kept in `Contact.jsx`; move them to environment variables before public production use.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Design References
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Primary direction: https://amitkumarraj.vercel.app/
+- Additional reference: https://www.redoyanulhaque.me/
+- Additional reference: https://alisaleem252.com/
