@@ -156,7 +156,7 @@ a {
 .whatsapp-float {
  position: fixed;
  right: 1.2rem;
- bottom: 1.2rem;
+ bottom: 6rem;
  z-index: 60;
  display: inline-flex;
  align-items: center;

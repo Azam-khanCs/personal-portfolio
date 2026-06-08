@@ -17,7 +17,7 @@
 }
 
 .service-card {
- min-height: 150px;
+ min-height: 100px;
  padding: 1.2rem;
 }
 
@@ -27,12 +27,19 @@
  font-size: 0.82rem;
  font-weight: 900;
  margin-bottom: 1.3rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ gap: 0.45rem;
 }
 
 .service-card h3 {
  color: var(--heading);
  font-size: 1rem;
  line-height: 1.35;
+ text-align: center;
+
  margin: 0;
 }
 
