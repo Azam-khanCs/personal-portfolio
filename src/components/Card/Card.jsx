@@ -1,13 +1,16 @@
 import React from "react";
-import "./Card.css";
+import { btnGhost, glassCard } from "../../styles";
 
 const Card = ({ emoji, heading, detail, color }) => {
   return (
-    <div className="card glass-card" style={{ borderColor: color }}>
-      <img src={emoji} alt="" />
-      <span>{heading}</span>
-      <span>{detail}</span>
-      <button className="btn-ghost">LEARN MORE</button>
+    <div
+      className={`${glassCard} grid min-h-64 justify-items-center gap-3 p-6 text-center`}
+      style={{ borderColor: color }}
+    >
+      <img className="h-16 w-16 object-contain" src={emoji} alt="" />
+      <span className="text-xl font-black text-[var(--heading)]">{heading}</span>
+      <span className="text-sm font-bold leading-6 text-[var(--text-muted)]">{detail}</span>
+      <button className={btnGhost}>LEARN MORE</button>
     </div>
   );
 };

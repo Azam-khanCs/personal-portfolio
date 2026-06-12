@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./Skills.css";
+import { chip, glassCard, eyebrow, sectionHeading, sectionShell, sectionTitle, tiltCard } from "../../styles";
 
 const skillGroups = [
   { title: "Frontend", skills: ["React.js", "Next.js", "Angular", "JavaScript", "TypeScript", "HTML5", "CSS3", "Responsive UI", "Reusable components"] },
@@ -12,18 +12,18 @@ const skillGroups = [
 
 const Skills = () => {
   return (
-    <section className="skills section-shell" id="skills" aria-labelledby="skills-title">
-      <motion.div className="section-heading" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6 }}>
-        <span className="eyebrow">&lt;My Skills /&gt;</span>
-        <h2 className="section-title" id="skills-title">Skills organized for real product work.</h2>
+    <section className={sectionShell} id="skills" aria-labelledby="skills-title">
+      <motion.div className={sectionHeading} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6 }}>
+        <span className={eyebrow}>&lt;My Skills /&gt;</span>
+        <h2 className={sectionTitle} id="skills-title">Skills organized for real product work.</h2>
       </motion.div>
 
-      <motion.div className="skills-grid" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}>
+      <motion.div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}>
         {skillGroups.map((group) => (
-          <motion.article className="skill-card glass-card tilt-card" key={group.title} variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }} whileHover={{ y: -8, rotateX: 2, rotateY: -2 }}>
-            <h3>{group.title}</h3>
-            <div className="skill-badges">
-              {group.skills.map((skill) => <span key={skill}>{skill}</span>)}
+          <motion.article className={`${glassCard} ${tiltCard} p-6`} key={group.title} variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }} whileHover={{ y: -8, rotateX: 2, rotateY: -2 }}>
+            <h3 className="m-0 text-xl font-black text-[var(--heading)]">{group.title}</h3>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {group.skills.map((skill) => <span className={chip} key={skill}>{skill}</span>)}
             </div>
           </motion.article>
         ))}

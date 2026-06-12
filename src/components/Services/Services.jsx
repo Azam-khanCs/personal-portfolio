@@ -1,7 +1,7 @@
 import React from "react";
-import "./Services.css";
 import { motion } from "framer-motion";
 import Resume from "./Azam khan front-end Developer (React js ).pdf";
+import { btnPrimary, glassCard, eyebrow, leadText, sectionHeading, sectionShell, sectionTitle, tiltCard } from "../../styles";
 
 const services = [
   "Full Stack Web Application Development",
@@ -17,19 +17,19 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="services section-shell" id="services" aria-labelledby="services-title">
-      <motion.div className="section-heading services-heading" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6 }}>
-        <span className="eyebrow">&lt;Services /&gt;</span>
-        <h2 className="section-title" id="services-title">Engineering support from idea to production.</h2>
-        <p className="lead-text">I help teams turn business requirements into responsive interfaces, secure APIs, reliable databases, and deployable products.</p>
-        <a className="btn-primary" href={Resume} download>Download CV</a>
+    <section className={sectionShell} id="services" aria-labelledby="services-title">
+      <motion.div className={`${sectionHeading} max-w-3xl`} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6 }}>
+        <span className={eyebrow}>&lt;Services /&gt;</span>
+        <h2 className={sectionTitle} id="services-title">Engineering support from idea to production.</h2>
+        <p className={leadText}>I help teams turn business requirements into responsive interfaces, secure APIs, reliable databases, and deployable products.</p>
+        <a className={btnPrimary} href={Resume} download>Download CV</a>
       </motion.div>
 
-      <motion.div className="services-grid" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}>
+      <motion.div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}>
         {services.map((service, index) => (
-          <motion.article className="service-card glass-card tilt-card" key={service} variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }} whileHover={{ y: -8 }}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{service}</h3>
+          <motion.article className={`${glassCard} ${tiltCard} min-h-44 p-6`} key={service} variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }} whileHover={{ y: -8 }}>
+            <span className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--chip)] text-sm font-black text-[var(--accent)]">{String(index + 1).padStart(2, "0")}</span>
+            <h3 className="m-0 text-xl font-black text-[var(--heading)]">{service}</h3>
           </motion.article>
         ))}
       </motion.div>

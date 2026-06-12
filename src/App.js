@@ -1,4 +1,3 @@
-import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Intro from "./components/Intro/Intro";
 import About from "./components/About/About";
@@ -15,6 +14,7 @@ import { useContext, useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { themeContext } from "./Context";
 import { getAdminAuth, trackPageView } from "./utils/visitorAnalytics";
+import { appShell, themeVars } from "./styles";
 
 const trackedSections = [
   { id: "Intro", page: "/#home" },
@@ -79,7 +79,8 @@ const PortfolioHome = () => {
 
   return (
     <div
-      className={`app-shell ${darkMode ? "theme-dark" : "theme-light"}`}
+      className={appShell}
+      style={darkMode ? themeVars.dark : themeVars.light}
     >
       <Navbar />
       <Intro />
@@ -93,7 +94,7 @@ const PortfolioHome = () => {
       <Contact />
       <Footer />
       <a
-        className="whatsapp-float"
+        className="fixed bottom-24 right-5 z-[60] inline-flex min-h-12 items-center rounded-full bg-[linear-gradient(135deg,#25d366,#84f1aa)] px-5 font-black text-[#062d16] shadow-[0_18px_45px_rgba(37,211,102,0.28)]"
         href="https://wa.me/00923419002614"
         target="_blank"
         rel="noreferrer"

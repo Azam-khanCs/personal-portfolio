@@ -1,7 +1,7 @@
 import React from "react";
-import "./Experience.css";
 import NumberCounter from "number-counter";
 import { motion } from "framer-motion";
+import { glassCard, sectionShell } from "../../styles";
 
 const metrics = [
   { end: 5, suffix: "y", label: "Nearly 5 years of experience" },
@@ -14,12 +14,12 @@ const metrics = [
 
 const Experience = () => {
   return (
-    <section className="experience section-shell" id="experience" aria-label="Professional statistics">
-      <motion.div className="experience-grid" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}>
+    <section className={sectionShell} id="experience" aria-label="Professional statistics">
+      <motion.div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}>
         {metrics.map((metric) => (
-          <motion.article className="metric-card glass-card" key={metric.label} variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}>
-            <div className="metric-number"><NumberCounter start={0} end={metric.end} delay={1} postFix={metric.suffix} /></div>
-            <span>{metric.label}</span>
+          <motion.article className={`${glassCard} flex min-h-36 flex-col justify-between p-5 text-center transition duration-200 hover:-translate-y-1 hover:border-orange-400/40`} key={metric.label} variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}>
+            <div className="text-4xl font-black text-[var(--heading)]"><NumberCounter start={0} end={metric.end} delay={1} postFix={metric.suffix} /></div>
+            <span className="text-sm font-bold text-[var(--text-muted)]">{metric.label}</span>
           </motion.article>
         ))}
       </motion.div>

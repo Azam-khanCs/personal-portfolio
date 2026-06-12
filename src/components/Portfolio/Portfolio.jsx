@@ -1,5 +1,4 @@
 import React from "react";
-import "./Portfolio.css";
 import { motion } from "framer-motion";
 
 import Vivenda from "../../img/vivenda.png";
@@ -11,6 +10,7 @@ import Gymclub from "../../img/fitClub.png";
 import Greenbank from "../../img/green bank.png";
 import Startup from "../../img/startup.png";
 import Agency from "../../img/agency.png";
+import { btnGhost, btnPrimary, chip, glassCard, eyebrow, sectionHeading, sectionShell, sectionTitle, tiltCard } from "../../styles";
 
 const sourceLink = "https://github.com/Azam-khanCs";
 
@@ -28,30 +28,30 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section className="portfolio section-shell" id="portfolio" aria-labelledby="portfolio-title">
-      <motion.div className="section-heading" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6 }}>
-        <span className="eyebrow">&lt;My Projects /&gt;</span>
-        <h2 className="section-title" id="portfolio-title">Projects with clear roles, stacks, and outcomes.</h2>
+    <section className={sectionShell} id="portfolio" aria-labelledby="portfolio-title">
+      <motion.div className={sectionHeading} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6 }}>
+        <span className={eyebrow}>&lt;My Projects /&gt;</span>
+        <h2 className={sectionTitle} id="portfolio-title">Projects with clear roles, stacks, and outcomes.</h2>
       </motion.div>
 
-      <motion.div className="projects-grid" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.12 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}>
+      <motion.div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.12 }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}>
         {projects.map((project) => (
-          <motion.article className="project-card glass-card tilt-card" key={project.title} variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }} whileHover={{ y: -8 }}>
-            <div className="project-image">
-              <img src={project.image} alt={`${project.title} screenshot`} />
-              <div className="project-overlay">
-                <a className="btn-primary" href={project.live} target="_blank" rel="noreferrer">View Live</a>
+          <motion.article className={`${glassCard} ${tiltCard} group overflow-hidden`} key={project.title} variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }} whileHover={{ y: -8 }}>
+            <div className="relative aspect-video overflow-hidden">
+              <img className="h-full w-full object-cover transition duration-300 group-hover:scale-105" src={project.image} alt={`${project.title} screenshot`} />
+              <div className="absolute inset-0 grid place-items-center bg-slate-950/50 opacity-0 transition duration-300 group-hover:opacity-100">
+                <a className={btnPrimary} href={project.live} target="_blank" rel="noreferrer">View Live</a>
               </div>
             </div>
-            <div className="project-content">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="project-stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
-              <ul>{project.features.map((item) => <li key={item}>{item}</li>)}</ul>
-              <span className="project-role">Role: {project.role}</span>
-              <div className="project-actions">
-                <a className="btn-primary" href={project.live} target="_blank" rel="noreferrer">Live Project</a>
-                <a className="btn-ghost" href={project.github} target="_blank" rel="noreferrer">Source Code</a>
+            <div className="p-5">
+              <h3 className="m-0 text-xl font-black text-[var(--heading)]">{project.title}</h3>
+              <p className="leading-7 text-[var(--text-muted)]">{project.description}</p>
+              <div className="mt-5 flex flex-wrap gap-2">{project.stack.map((item) => <span className={chip} key={item}>{item}</span>)}</div>
+              <ul className="my-4 grid gap-2 pl-5 text-sm font-bold text-[var(--text-muted)]">{project.features.map((item) => <li key={item}>{item}</li>)}</ul>
+              <span className="mb-4 block text-sm font-black text-[var(--accent)]">Role: {project.role}</span>
+              <div className="flex flex-wrap items-center gap-3">
+                <a className={btnPrimary} href={project.live} target="_blank" rel="noreferrer">Live Project</a>
+                <a className={btnGhost} href={project.github} target="_blank" rel="noreferrer">Source Code</a>
               </div>
             </div>
           </motion.article>
