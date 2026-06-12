@@ -83,6 +83,7 @@ const PortfolioHome = () => {
       style={darkMode ? themeVars.dark : themeVars.light}
     >
       <Navbar />
+      <div className="h-[76px]" aria-hidden="true" />
       <Intro />
       <About />
       <Skills />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Toggle from "../Toggle/Toggle";
 import { Link } from "react-scroll";
 import { UilBars, UilTimes } from "@iconscout/react-unicons";
@@ -16,11 +16,28 @@ const navItems = [
 
 const Navbar = () => {
  const [openMenu, setOpenMenu] = useState(false);
+ const [scrolled, setScrolled] = useState(false);
  const closeMenu = () => setOpenMenu(false);
+
+ useEffect(() => {
+  const handleScroll = () => {
+   setScrolled(window.scrollY > 24);
+  };
+
+  handleScroll();
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => window.removeEventListener("scroll", handleScroll);
+ }, []);
 
  return (
   <header
-   className="sticky top-0 z-50 mx-auto flex w-[min(1400px,calc(100%-2rem))] items-center justify-between gap-4 border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3 shadow-soft backdrop-blur-xl md:px-5"
+   className={cx(
+    "fixed left-0 right-0 z-50 mx-auto flex items-center justify-between gap-4 border border-[var(--border)] bg-[var(--surface)] px-4 shadow-soft backdrop-blur-xl transition-all duration-500 ease-out md:px-5",
+    scrolled
+     ? "top-3 w-[min(1080px,calc(100%-2rem))] rounded-full py-3"
+     : "top-0 w-full rounded-none border-x-0 border-t-0 py-4",
+   )}
    id="Navbar"
   >
    <div className="flex items-center gap-4">
