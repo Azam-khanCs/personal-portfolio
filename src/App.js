@@ -10,12 +10,73 @@ import Portfolio from "./components/Portfolio/Portfolio";
 import Testimonial from "./components/Testimonials/Testimonial";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-import { useContext } from "react";
+import AdminDashboard, { AdminLogin } from "./components/Admin/AdminDashboard";
+import { useContext, useEffect, useState } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { themeContext } from "./Context";
+import { getAdminAuth, trackPageView } from "./utils/visitorAnalytics";
 
-function App() {
+const trackedSections = [
+  { id: "Intro", page: "/#home" },
+  { id: "about", page: "/#about" },
+  { id: "skills", page: "/#skills" },
+  { id: "services", page: "/#services" },
+  { id: "portfolio", page: "/#portfolio" },
+  { id: "community", page: "/#community" },
+  { id: "contact", page: "/#contact" },
+];
+
+const VisitorTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.pathname.startsWith("/admin")) {
+      trackPageView(`${location.pathname}${location.hash || ""}`);
+    }
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      return undefined;
+    }
+
+    const visibleSections = new Set();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const section = trackedSections.find((item) => item.id === entry.target.id);
+
+          if (section && !visibleSections.has(section.page)) {
+            visibleSections.add(section.page);
+            trackPageView(section.page);
+          }
+        });
+      },
+      { threshold: 0.55 }
+    );
+
+    trackedSections.forEach((section) => {
+      const element = document.getElementById(section.id);
+
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
+  return null;
+};
+
+const PortfolioHome = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+
   return (
     <div
       className={`app-shell ${darkMode ? "theme-dark" : "theme-light"}`}
@@ -41,6 +102,29 @@ function App() {
         WhatsApp
       </a>
     </div>
+  );
+};
+
+const AdminRoute = () => {
+  const [authenticated, setAuthenticated] = useState(() => getAdminAuth());
+
+  if (!authenticated) {
+    return <AdminLogin onLogin={() => setAuthenticated(true)} />;
+  }
+
+  return <AdminDashboard onLogout={() => setAuthenticated(false)} />;
+};
+
+function App() {
+  return (
+    <>
+      <VisitorTracker />
+      <Routes>
+        <Route path="/" element={<PortfolioHome />} />
+        <Route path="/admin" element={<AdminRoute />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   );
 }
 
